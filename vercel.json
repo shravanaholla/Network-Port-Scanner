@@ -1,0 +1,13 @@
+{
+  "version": 2,
+  "builds": [
+    { "src": "index.html", "use": "@vercel/static" },
+    { "src": "servers.json", "use": "@vercel/static" },
+    { "src": "api/scan.py", "use": "@vercel/python" }
+  ],
+  "routes": [
+    { "src": "/servers.json", "dest": "servers.json" },
+    { "src": "/api/scan", "dest": "api/scan.py" },
+    { "src": "/(.*)", "dest": "index.html" }
+  ]
+}
